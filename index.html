@@ -321,29 +321,14 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
     <p class="lead shop-lead" style="margin:0 auto">Shop <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">! Wear The Spirit of American Muscle.</p>
     <p class="shop-subline" style="margin:8px auto 0">Made to order. Ships direct to you.</p>
     <div class="shop-filters">
-      <button class="shop-filter active" onclick="filterShop('all',this)">All</button>
-      <button class="shop-filter" onclick="filterShop('hats',this)">Hats</button>
-      <button class="shop-filter" onclick="filterShop('tees',this)">Tees</button>
-      <button class="shop-filter" onclick="filterShop('outerwear',this)">Outerwear</button>
-      <button class="shop-filter" onclick="filterShop('home',this)">Home</button>
+      <button type="button" class="shop-filter active" data-col="313251528790" onclick="shopFilter(this)">All</button>
+      <button type="button" class="shop-filter" data-col="313454592086" onclick="shopFilter(this)">Apparel</button>
+      <button type="button" class="shop-filter" data-col="313454624854" onclick="shopFilter(this)">Hats</button>
+      <button type="button" class="shop-filter" data-col="313454657622" onclick="shopFilter(this)">Home</button>
+      <button type="button" class="shop-filter" data-col="313454886998" onclick="shopFilter(this)">Garage</button>
+      <button type="button" class="shop-filter" data-col="313454690390" onclick="shopFilter(this)">Drinkware</button>
     </div>
-    <div class="shop-grid">
-      <div class="pcard" data-cat="hats"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/12521251617965710940_2048.jpg?v=1783689448" alt="Dad Cap" loading="lazy"></div><div class="pinfo"><div class="pname">Dad Cap</div><div class="pprice">$40</div></div></div>
-      <div class="pcard" data-cat="tees"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/14898858469029556051_2048.jpg?v=1783689497" alt="Monogram Tee" loading="lazy"></div><div class="pinfo"><div class="pname">Monogram Tee</div><div class="pprice">$40</div></div></div>
-      <div class="pcard" data-cat="outerwear"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/1255414930492388997_2048.jpg?v=1783689559" alt="Crewneck Sweatshirt" loading="lazy"></div><div class="pinfo"><div class="pname">Crewneck Sweatshirt</div><div class="pprice">$40</div></div></div>
-      <div class="pcard" data-cat="outerwear"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/6636551153841242099_2048.jpg?v=1783690259" alt="Letterman Jacket" loading="lazy"></div><div class="pinfo"><div class="pname">Letterman Jacket</div><div class="pprice">$85</div></div></div>
-      <div class="pcard" data-cat="hats"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/11655688173751438009_2048.jpg?v=1783689494" alt="Trucker Hat" loading="lazy"></div><div class="pinfo"><div class="pname">Trucker Hat</div><div class="pprice">$35</div></div></div>
-      <div class="pcard" data-cat="home"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/3545371952529078562_2048.jpg?v=1783689553" alt="Sherpa Blanket" loading="lazy"></div><div class="pinfo"><div class="pname">Sherpa Blanket</div><div class="pprice">$65</div></div></div>
-      <div class="pcard" data-cat="hats"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/5840070929708538773_2048.jpg?v=1783689622" alt="Denim Cap" loading="lazy"></div><div class="pinfo"><div class="pname">Denim Cap</div><div class="pprice">$40</div></div></div>
-      <div class="pcard" data-cat="home"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/12632146150412647625_2048.jpg?v=1783689166" alt="Throttled In Bond Flag" loading="lazy"></div><div class="pinfo"><div class="pname">TIB Flag</div><div class="pprice">$45</div></div></div>
-      <div class="pcard" data-cat="tees"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/5651518365405623589_2048.jpg?v=1783689539" alt="Boxy Tee" loading="lazy"></div><div class="pinfo"><div class="pname">Boxy Tee</div><div class="pprice">$40</div></div></div>
-      <div class="pcard" data-cat="hats"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/8338391169986525136_2048.jpg?v=1783689602" alt="Trucker Cap" loading="lazy"></div><div class="pinfo"><div class="pname">Trucker Cap</div><div class="pprice">$35</div></div></div>
-      <div class="pcard" data-cat="hats"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/18041313435303476988_2048.jpg?v=1783689435" alt="Foam Trucker Cap" loading="lazy"></div><div class="pinfo"><div class="pname">Foam Trucker Cap</div><div class="pprice">$35</div></div></div>
-      <div class="pcard" data-cat="home"><div class="pimg"><img src="https://cdn.shopify.com/s/files/1/0734/9672/3542/files/1069521144007733305_2048.jpg?v=1783689294" alt="Rally Towel" loading="lazy"></div><div class="pinfo"><div class="pname">Rally Towel</div><div class="pprice">$13</div></div></div>
-    </div>
-    <div class="hero-cta" style="justify-content:center;margin-top:40px">
-      <a class="btn btn-solid" onclick="openSignup()">Get Early Access</a>
-    </div>
+    <div id="shop-embed" style="margin-top:24px"><div id="collection-component-1783597422579"></div></div>
     <div class="age-note" style="margin-top:14px">The Store Is Open! Coffee coming soon!</div>
   </div>
 </section>
@@ -426,14 +411,71 @@ function closeNav(){ document.getElementById('navlinks').classList.remove('open'
 /* modal */
 function openSignup(){ document.getElementById('signupModal').classList.add('open'); setTimeout(function(){var i=document.getElementById('notifyEmail'); if(i) i.focus();},60); }
 function closeSignup(){ document.getElementById('signupModal').classList.remove('open'); }
-function filterShop(cat, btn){
-  var btns = document.querySelectorAll('.shop-filter');
-  for(var i=0;i<btns.length;i++){ btns[i].classList.toggle('active', btns[i]===btn); }
-  var cards = document.querySelectorAll('#shop .pcard');
-  for(var j=0;j<cards.length;j++){
-    cards[j].style.display = (cat==='all' || cards[j].getAttribute('data-cat')===cat) ? '' : 'none';
+/* ===== Shop: live Shopify Buy Button (same store as throttledinbond.com) ===== */
+var _shopInited = false, _shopUI = null;
+function shopRender(colId){
+  if(!_shopUI) return;
+  var GOLD='#C8952A', GOLD_LT='#B58A3C', CHARCOAL='#1A1917', CREAM='#F2EDE3', CREAM3='#A79C8A';
+  var btnStyle = {
+    'font-family':"'BasierSquare','Helvetica Neue',Arial,sans-serif",'font-weight':'600','font-size':'12px',
+    'letter-spacing':'0.1em','text-transform':'uppercase','border-radius':'0px',
+    'background-color':GOLD,'color':CHARCOAL,
+    ':hover':{'background-color':GOLD_LT},':focus':{'background-color':GOLD_LT}
+  };
+  var node = document.getElementById('collection-component-1783597422579');
+  if(node) node.innerHTML='';
+  _shopUI.createComponent('collection', {
+    id: colId, node: node, moneyFormat: '%24%7B%7Bamount%7D%7D',
+    options: {
+      product: {
+        buttonDestination: 'modal',
+        contents: { options: false },
+        styles: {
+          product: {
+            '@media (min-width: 601px)': { 'max-width':'calc(33.33% - 20px)','margin-left':'20px','margin-bottom':'40px','width':'calc(33.33% - 20px)' },
+            'img': { 'height':'calc(100% - 15px)','position':'absolute','left':'0','right':'0','top':'0' },
+            'imgWrapper': { 'padding-top':'calc(75% + 15px)','position':'relative','height':'0' }
+          },
+          title: { 'color':CREAM,'font-weight':'600','height':'3.4em','line-height':'1.35','overflow':'hidden' },
+          price: { 'color':CREAM },
+          compareAt: { 'color':CREAM3 },
+          button: btnStyle
+        },
+        text: { button: 'View Details' }
+      },
+      productSet: { styles: { products: { '@media (min-width: 601px)': { 'margin-left':'-20px' } } } },
+      modalProduct: {
+        contents: { img:false, imgWithCarousel:true, button:false, buttonWithQuantity:true },
+        styles: { product: { '@media (min-width: 601px)': { 'max-width':'100%','margin-left':'0px','margin-bottom':'0px' } }, button: btnStyle },
+        text: { button: 'Add to cart' }
+      },
+      option: {},
+      cart: { styles: { button: btnStyle }, text: { total:'Subtotal', button:'Checkout' } },
+      toggle: { styles: { toggle: { 'background-color':GOLD, ':hover':{'background-color':GOLD_LT} }, count: { 'color':CHARCOAL }, iconPath: { 'fill':CHARCOAL } } }
+    }
+  });
+}
+function shopFilter(btn){
+  var tabs = document.querySelectorAll('.shop-filter');
+  for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+  btn.classList.add('active');
+  shopRender(btn.getAttribute('data-col'));
+}
+function shopInitStore(){
+  if(_shopInited) return; _shopInited = true;
+  function build(){
+    var client = ShopifyBuy.buildClient({ domain:'cehtfv-np.myshopify.com', storefrontAccessToken:'c2f813ef6e6542879f7b93e8d5ae7d4e' });
+    ShopifyBuy.UI.onReady(client).then(function(ui){ _shopUI = ui; shopRender('313251528790'); });
+  }
+  if(window.ShopifyBuy && window.ShopifyBuy.UI){ build(); }
+  else {
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    s.onload = build;
+    (document.head || document.body).appendChild(s);
   }
 }
+window.addEventListener('load', shopInitStore);
 function openStory(){ document.getElementById('storyModal').classList.add('open'); }
 function closeStory(){ document.getElementById('storyModal').classList.remove('open'); }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); closeStory(); } });
