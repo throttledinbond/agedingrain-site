@@ -320,15 +320,9 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
     <h2 class="sec-title" style="margin-left:auto;margin-right:auto">The Shop</h2>
     <p class="lead shop-lead" style="margin:0 auto">Shop <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">! Wear The Spirit of American Muscle.</p>
     <p class="shop-subline" style="margin:8px auto 0">Made to order. Ships direct to you.</p>
-    <div class="shop-filters">
-      <button type="button" class="shop-filter active" data-col="313251528790" onclick="shopFilter(this)">All</button>
-      <button type="button" class="shop-filter" data-col="313454592086" onclick="shopFilter(this)">Apparel</button>
-      <button type="button" class="shop-filter" data-col="313454624854" onclick="shopFilter(this)">Hats</button>
-      <button type="button" class="shop-filter" data-col="313454657622" onclick="shopFilter(this)">Home</button>
-      <button type="button" class="shop-filter" data-col="313454886998" onclick="shopFilter(this)">Garage</button>
-      <button type="button" class="shop-filter" data-col="313454690390" onclick="shopFilter(this)">Drinkware</button>
+    <div style="margin-top:26px">
+      <a class="btn btn-solid" href="https://shop.throttledinbond.com">Enter The Shop</a>
     </div>
-    <div id="shop-embed" style="margin-top:24px"><div id="collection-component-1783597422579"></div></div>
     <div class="age-note" style="margin-top:14px">The Store Is Open! Coffee coming soon!</div>
   </div>
 </section>
@@ -475,7 +469,7 @@ function shopInitStore(){
     (document.head || document.body).appendChild(s);
   }
 }
-window.addEventListener('load', shopInitStore);
+/* shop links out to shop.throttledinbond.com — no embed to initialize */
 function openStory(){ document.getElementById('storyModal').classList.add('open'); }
 function closeStory(){ document.getElementById('storyModal').classList.remove('open'); }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); closeStory(); } });
