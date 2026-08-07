@@ -98,7 +98,7 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(20,19,17,.82);backdr
 /* SECTIONS (all transparent, sit over the single page background) */
 section{padding:clamp(64px,10vw,120px) 0;position:relative}
 .hero{color:var(--cream)}
-.hero-in{padding:clamp(30px,6vh,72px) 0 clamp(56px,9vw,108px)}
+.hero-in{padding:clamp(30px,6vh,72px) 0 clamp(24px,4vw,44px)}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,5vw,52px);align-items:center;text-align:left}
 .hero-copy .hero-broughtby{justify-content:flex-start}
 .hero-copy .hero-cta{justify-content:flex-start}
@@ -112,8 +112,8 @@ section{padding:clamp(64px,10vw,120px) 0;position:relative}
 .bag-fan .b2{height:clamp(108px,19vh,206px);z-index:1;margin:0 -15px;animation-delay:.7s}
 .bag-center{position:relative;z-index:3;margin:0 -15px;display:inline-flex;animation:bob 6.5s ease-in-out infinite}
 .bag-center .b0{margin:0;animation:none;display:block}
-.bag-sash{position:absolute;top:50%;left:-22%;width:144%;transform:translateY(-50%) rotate(-24deg);background:var(--rust);box-shadow:0 4px 16px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 22px;z-index:6;pointer-events:none;--sfs:clamp(10px,1.4vw,15px);clip-path:polygon(0 0,100% 0,calc(100% - 13px) 50%,100% 100%,0 100%,13px 50%)}
-.bag-sash img{height:var(--sfs);width:auto;display:block;flex-shrink:0;animation:none}
+.bag-sash{position:absolute;top:50%;left:-27%;width:154%;transform:translateY(-50%) rotate(-24deg);background:var(--rust);box-shadow:0 4px 16px rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 18px;z-index:6;pointer-events:none;--sfs:clamp(9px,1.2vw,12px);clip-path:polygon(0 0,100% 0,calc(100% - 13px) 50%,100% 100%,0 100%,13px 50%)}
+.bag-sash img{height:calc(var(--sfs) + 2px);width:auto;max-width:100%;display:block;flex-shrink:0;animation:none}
 .bag-sash span{font-size:var(--sfs);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#F4EEE3;line-height:1;white-space:nowrap}
 .coffee-block{margin-top:clamp(22px,3.5vh,38px)}
 .coffee-title{font-size:clamp(15px,2.3vw,27px);font-weight:700;letter-spacing:.02em;line-height:1.05;text-transform:uppercase;color:var(--gold);white-space:nowrap;margin:12px 0 0;text-shadow:var(--tsh)}
@@ -144,6 +144,9 @@ section{padding:clamp(64px,10vw,120px) 0;position:relative}
 /* GRID */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,68px);align-items:center}
 @media(max-width:820px){.grid2{grid-template-columns:1fr;gap:38px}}
+.ab-bourbon{position:relative}
+@media(min-width:821px){.ab-bourbon{border-left:1px solid var(--charcoal4);padding-left:clamp(28px,4vw,54px)}}
+@media(max-width:820px){.ab-bourbon{border-top:1px solid var(--charcoal4);padding-top:34px;margin-top:2px}}
 
 /* product image (real coffee bag) */
 .product-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:8px;min-height:clamp(360px,52vw,560px)}
@@ -303,8 +306,8 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
           <div class="bag-center">
             <img class="bf b0" src="agedingrain-bag.png" alt="Aged In Grain bourbon barrel aged coffee bag by Throttled In Bond">
             <div class="bag-sash">
-              <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" aria-hidden="true" crossorigin="anonymous">
-              <span>Coming Soon</span>
+              <span>Coming Soon From</span>
+              <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">
             </div>
           </div>
           <img class="bf b1" src="agedingrain-bag.png" alt="" aria-hidden="true">
@@ -319,23 +322,22 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 </section>
 
 <!-- ===== SHOP + THE BOURBON (two columns) ===== -->
-<section id="shop">
+<section id="shop" style="padding-top:clamp(34px,5vw,52px);padding-bottom:clamp(40px,6vw,64px);border-top:1px solid var(--charcoal4)">
   <div class="wrap">
     <div class="grid2" style="align-items:start;gap:clamp(30px,5vw,60px)">
       <div style="text-align:center">
         <div class="eyebrow">Apparel &amp; Goods</div>
         <h2 class="sec-title" style="margin:10px auto 0">The Shop</h2>
-        <p class="lead shop-lead" style="margin:16px auto 0;white-space:normal">Shop <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">! Wear The Spirit of American Muscle.</p>
-        <p class="shop-subline" style="margin:8px auto 0">Made to order. Ships direct to you.</p>
+        <p class="lead shop-lead" style="margin:16px auto 0;white-space:normal">Shop <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">!<br>Wear The Spirit of American Muscle.</p>
         <div style="margin-top:22px">
           <a class="btn btn-solid" href="https://shop.throttledinbond.com">Enter The Shop</a>
         </div>
         <div class="age-note" style="margin-top:14px">The Store Is Open! Coffee coming soon!</div>
       </div>
-      <div id="bourbon" style="text-align:center">
+      <div id="bourbon" class="ab-bourbon" style="text-align:center">
         <div class="eyebrow">From The Same Barrel</div>
         <h2 class="sec-title" style="margin:10px auto 0">The Bourbon</h2>
-        <p class="lead" style="margin:16px auto 0">Aged In Grain&trade; begins in the barrels that hold our Kentucky straight bourbon. Meet the whiskey that started it all.</p>
+        <p class="lead" style="margin:16px auto 0">Meet the whiskey that started it all.<br>Where the Aged In Grain&trade; story began.</p>
         <div class="hero-cta" style="justify-content:center;margin-top:22px">
           <a class="btn btn-solid" href="https://www.throttledinbond.com" target="_blank" rel="noopener">Explore The Whiskey</a>
         </div>
@@ -474,7 +476,7 @@ function shopInitStore(){
     (document.head || document.body).appendChild(s);
   }
 }
-/* shop links out to shop.throttledinbond.com — no embed to initialize */
+/* shop links out to shop.throttledinbond.com - no embed to initialize */
 function openStory(){ document.getElementById('storyModal').classList.add('open'); }
 function closeStory(){ document.getElementById('storyModal').classList.remove('open'); }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); closeStory(); } });
