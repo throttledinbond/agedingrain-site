@@ -57,8 +57,8 @@ p.body{font-size:clamp(15px,1.8vw,18px);color:var(--cream3);margin-top:14px}
 .page-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(140% 90% at 50% -8%,rgba(200,149,42,.10),transparent 60%);}
 /* full-width coffee-bean band pinned to the bottom, shifted down so the dense pile
    runs off the page; no gradient fade, so the scattered top beans read naturally */
-.page-beans{position:fixed;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;line-height:0}
-.page-beans img{display:block;width:100%;height:auto;transform:translateY(34%)}
+.page-beans{position:absolute;left:0;right:0;bottom:0;z-index:1;pointer-events:none;line-height:0;overflow:hidden}
+.page-beans img{display:block;width:100%;height:auto;margin-bottom:-17%}
 @keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-20px,0) scale(1.04)}}
 /* HUGE wordmark spanning the whole page */
 
@@ -241,7 +241,6 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 
 <!-- ONE continuous background for the whole page -->
 <div class="page-bg" aria-hidden="true"></div>
-<div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
 
 <!-- ===== NAV ===== -->
 <header class="nav">
@@ -261,6 +260,7 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
+  <div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
   <div class="wrap hero-in hero-grid">
     <div class="hero-copy">
       <h1 class="hero-lockup"><img src="brand/agedingrain-lockup.png" width="1532" height="320" alt="Aged In Grain&trade; &ndash; Bourbon Barrel Aged Coffee by THROTTLED"></h1>
