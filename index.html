@@ -16,9 +16,9 @@
 <meta property="og:site_name" content="Aged In Grain&trade;">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" type="image/png" href="https://www.throttledinbond.com/favicon.png?v=20260710">
-<link rel="shortcut icon" type="image/png" href="https://www.throttledinbond.com/favicon.png?v=20260710">
-<link rel="apple-touch-icon" href="https://www.throttledinbond.com/favicon.png?v=20260710">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/brand/favicon-192.png">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 <style>
@@ -55,19 +55,12 @@ p.body{font-size:clamp(15px,1.8vw,18px);color:var(--cream3);margin-top:14px}
 .page-bg{position:fixed;inset:0;z-index:-3;background-color:var(--charcoal);
   background-image:var(--metal);background-repeat:no-repeat,repeat;background-size:100% 100%,1200px 800px;background-position:center,top left;}
 .page-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(140% 90% at 50% -8%,rgba(200,149,42,.10),transparent 60%);}
-.page-marks{position:fixed;inset:-12%;z-index:-2;pointer-events:none;overflow:hidden;animation:drift 34s ease-in-out infinite alternate}
 /* full-width coffee-bean band pinned to the bottom, shifted down so the dense pile
    runs off the page; no gradient fade, so the scattered top beans read naturally */
 .page-beans{position:fixed;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;line-height:0}
 .page-beans img{display:block;width:100%;height:auto;transform:translateY(34%)}
-.page-marks .mk{position:absolute;will-change:transform;transition:transform .6s cubic-bezier(.16,.7,.3,1)}
-.page-marks .mk img{display:block;width:100%;height:auto}
 @keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-20px,0) scale(1.04)}}
 /* HUGE wordmark spanning the whole page */
-.gmk-word{top:30%;left:50%;margin-left:-88vw;width:176vw;opacity:.06}
-.gmk-word-2{bottom:-4%;left:50%;margin-left:-70vw;width:140vw;opacity:.04}
-.gmk-icon{top:1%;left:-8%;width:min(78vw,860px);opacity:.05}
-.gmk-icon-2{bottom:-14%;right:-10%;width:min(56vw,640px);opacity:.045}
 
 /* double-rule detail */
 .drule{border-top:1px solid var(--gold);position:relative;padding-top:6px}
@@ -217,15 +210,6 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 .foot-legal b{color:#C4BBAD;font-weight:400}
 .tm{font-size:.62em;vertical-align:super}
 
-.shop-lead{white-space:nowrap;font-size:clamp(12px,2.6vw,20px)}
-.shop-subline{color:var(--gold);font-size:clamp(12px,1.7vw,15px);letter-spacing:.05em;text-shadow:var(--tsh)}
-/* shop category filters */
-.shop-filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 4px}
-.shop-filter{font-family:var(--f);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--cream3);background:rgba(20,19,17,.5);border:1px solid var(--charcoal4);padding:9px 17px;cursor:pointer;transition:all .15s}
-.shop-filter:hover{color:var(--gold);border-color:var(--gold)}
-.shop-filter.active{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
-/* shop product grid */
-.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-top:22px}
 .pcard{background:rgba(20,19,17,.62);border:1px solid var(--charcoal4);overflow:hidden;display:flex;flex-direction:column;transition:border-color .16s,transform .16s}
 .pcard:hover{border-color:var(--gold);transform:translateY(-3px)}
 .pcard .pimg{aspect-ratio:1/1;background:#ECE5D7;overflow:hidden}
@@ -248,34 +232,28 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 .btn-ghost:hover{ text-shadow:none; }
 .chip{ background:rgba(20,19,17,.55); }
 
-@media(prefers-reduced-motion:reduce){.page-marks{animation:none}.page-marks .mk{transition:none}}
+.hero-lockup{margin:0;line-height:0}
+.hero-lockup img{display:block;width:100%;max-width:560px;height:auto;filter:drop-shadow(0 3px 12px rgba(0,0,0,.55))}
+@media(max-width:860px){.hero-lockup img{margin:0 auto;max-width:min(88vw,460px)}}
 </style>
 </head>
 <body>
 
 <!-- ONE continuous background for the whole page -->
 <div class="page-bg" aria-hidden="true"></div>
-<div class="page-marks" aria-hidden="true">
-  <div class="mk gmk-word"   data-depth="30"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="" crossorigin="anonymous"></div>
-  <div class="mk gmk-icon"   data-depth="52"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous"></div>
-  <div class="mk gmk-word-2" data-depth="20"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="" crossorigin="anonymous"></div>
-  <div class="mk gmk-icon-2" data-depth="40"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous"></div>
-</div>
 <div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
 
 <!-- ===== NAV ===== -->
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brandmark" href="#top" aria-label="Aged In Grain home">
-      <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
+      <img src="brand/thr-mark-white-512.png" alt="" crossorigin="anonymous">
       <span class="wordmark">Aged In Grain<span class="tm">&trade;</span></span>
     </a>
     <button class="nav-toggle" onclick="document.getElementById('navlinks').classList.toggle('open')">Menu</button>
     <nav class="nav-links" id="navlinks">
       <a href="#coffee" onclick="closeNav()">Coffee</a>
-      <a onclick="closeNav();openStory()">About</a>
-      <a href="#shop" onclick="closeNav()">Shop</a>
-      <a href="#bourbon" onclick="closeNav()">Bourbon</a>
+      <a href="https://www.throttledspirits.com" target="_blank" rel="noopener noreferrer" onclick="closeNav()">Bourbon</a>
       <a class="nav-cta" onclick="closeNav();openSignup()">Get Early Access</a>
     </nav>
   </div>
@@ -285,15 +263,9 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 <section class="hero" id="top">
   <div class="wrap hero-in hero-grid">
     <div class="hero-copy">
-      <div class="hero-sub">The Fuel of American Muscle&trade;</div>
-      <h1 class="hero-word">Aged In Grain<span class="hero-tm">&trade;</span></h1>
-      <div class="hero-broughtby">
-        <span class="bb-label">Brought to you by</span>
-        <img class="hero-tibmark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">
-      </div>
+      <h1 class="hero-lockup"><img src="brand/agedingrain-lockup.png" width="1532" height="320" alt="Aged In Grain&trade; &ndash; Bourbon Barrel Aged Coffee by THROTTLED"></h1>
       <div class="hero-cta">
-        <a class="btn btn-solid" onclick="openStory()">Learn More</a>
-        <a class="btn btn-ghost" onclick="openSignup()">Get Early Access</a>
+        <a class="btn btn-solid" onclick="openSignup()">Get Early Access</a>
       </div>
     </div>
     <div class="hero-right">
@@ -306,7 +278,7 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
             <img class="bf b0" src="agedingrain-bag.png" alt="Aged In Grain bourbon barrel aged coffee bag by Throttled In Bond">
             <div class="bag-sash">
               <span>Coming Soon From</span>
-              <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">
+              <img src="brand/throttled-wordmark-white.png" alt="THROTTLED" crossorigin="anonymous">
             </div>
           </div>
           <img class="bf b1" src="agedingrain-bag.png" alt="" aria-hidden="true">
@@ -315,32 +287,6 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
       </div>
       <div class="coffee-block" id="coffee">
         <h2 class="coffee-title">Bourbon Barrel Aged Coffee</h2>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SHOP + THE BOURBON (two columns) ===== -->
-<section id="shop" style="padding-top:clamp(34px,5vw,52px);padding-bottom:clamp(40px,6vw,64px);border-top:1px solid var(--charcoal4)">
-  <div class="wrap">
-    <div class="grid2" style="align-items:start;gap:clamp(30px,5vw,60px)">
-      <div style="text-align:center">
-        <div class="eyebrow">Apparel &amp; Goods</div>
-        <h2 class="sec-title" style="margin:10px auto 0">The Shop</h2>
-        <p class="lead shop-lead" style="margin:16px auto 0;white-space:normal">Shop <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">!<br>Wear The Spirit of American Muscle.</p>
-        <div style="margin-top:22px">
-          <a class="btn btn-solid" href="https://shop.throttledinbond.com">Enter The Shop</a>
-        </div>
-        <div class="age-note" style="margin-top:14px">The Store Is Open! Coffee coming soon!</div>
-      </div>
-      <div id="bourbon" class="ab-bourbon" style="text-align:center">
-        <div class="eyebrow">From The Same Barrel</div>
-        <h2 class="sec-title" style="margin:10px auto 0">The Bourbon</h2>
-        <p class="lead" style="margin:16px auto 0">Meet the whiskey that started it all.<br>Where the Aged In Grain&trade; story began.</p>
-        <div class="hero-cta" style="justify-content:center;margin-top:22px">
-          <a class="btn btn-solid" href="https://www.throttledinbond.com" target="_blank" rel="noopener">Explore The Whiskey</a>
-        </div>
-        <div class="age-note" style="margin-top:14px">Must be 21+ to visit and purchase alcohol.</div>
       </div>
     </div>
   </div>
@@ -356,9 +302,7 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
       </div>
       <div class="foot-links">
         <a href="#coffee">Coffee</a>
-        <a onclick="openStory()">About</a>
-        <a href="#shop">Shop</a>
-        <a href="#bourbon">Bourbon</a>
+        <a href="https://www.throttledspirits.com" target="_blank" rel="noopener noreferrer">Bourbon</a>
         <a onclick="openSignup()">Early Access</a>
       </div>
     </div>
@@ -370,26 +314,12 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
   </div>
 </footer>
 
-<!-- ===== STORY MODAL ===== -->
-<div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-label="Our story">
-  <div class="modal-backdrop" onclick="closeStory()"></div>
-  <div class="modal-card wide" style="text-align:center">
-    <button class="modal-x" onclick="closeStory()" aria-label="Close">&times;</button>
-    <img class="kmark-sm" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
-    <div class="eyebrow" style="margin-top:14px">The Story</div>
-    <h3>Rickhouse To Roaster</h3>
-    <p style="margin-bottom:0">The barrels that age <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous"> whiskey get a second life aging coffee. They are quickly filled with green coffee beans, which rest 4&ndash;6 weeks before roasting. Two products, one barrel, one story.</p>
-    <div class="drule" style="max-width:120px;margin:22px auto 10px"></div>
-    <div class="foot-tag">Aged In Grain&trade; &ndash; The Fuel of American Muscle&trade;</div>
-  </div>
-</div>
-
 <!-- ===== EARLY ACCESS MODAL ===== -->
 <div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-label="Get early access">
   <div class="modal-backdrop" onclick="closeSignup()"></div>
   <div class="modal-card">
     <button class="modal-x" onclick="closeSignup()" aria-label="Close">&times;</button>
-    <img class="kmark-sm" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
+    <img class="kmark-sm" src="brand/thr-mark-white-512.png" alt="" crossorigin="anonymous">
     <h3>Be First To Know</h3>
     <p>New product releases, No Spam.</p>
     <form class="modal-form" onsubmit="return submitNotify(event)">
@@ -407,97 +337,7 @@ function closeNav(){ document.getElementById('navlinks').classList.remove('open'
 /* modal */
 function openSignup(){ document.getElementById('signupModal').classList.add('open'); setTimeout(function(){var i=document.getElementById('notifyEmail'); if(i) i.focus();},60); }
 function closeSignup(){ document.getElementById('signupModal').classList.remove('open'); }
-/* ===== Shop: live Shopify Buy Button (same store as throttledinbond.com) ===== */
-var _shopInited = false, _shopUI = null;
-function shopRender(colId){
-  if(!_shopUI) return;
-  var GOLD='#C8952A', GOLD_LT='#B58A3C', CHARCOAL='#1A1917', CREAM='#F2EDE3', CREAM3='#A79C8A';
-  var btnStyle = {
-    'font-family':"'BasierSquare','Helvetica Neue',Arial,sans-serif",'font-weight':'600','font-size':'12px',
-    'letter-spacing':'0.1em','text-transform':'uppercase','border-radius':'0px',
-    'background-color':GOLD,'color':CHARCOAL,
-    ':hover':{'background-color':GOLD_LT},':focus':{'background-color':GOLD_LT}
-  };
-  var node = document.getElementById('collection-component-1783597422579');
-  if(node) node.innerHTML='';
-  _shopUI.createComponent('collection', {
-    id: colId, node: node, moneyFormat: '%24%7B%7Bamount%7D%7D',
-    options: {
-      product: {
-        buttonDestination: 'modal',
-        contents: { options: false },
-        styles: {
-          product: {
-            '@media (min-width: 601px)': { 'max-width':'calc(33.33% - 20px)','margin-left':'20px','margin-bottom':'40px','width':'calc(33.33% - 20px)' },
-            'img': { 'height':'calc(100% - 15px)','position':'absolute','left':'0','right':'0','top':'0' },
-            'imgWrapper': { 'padding-top':'calc(75% + 15px)','position':'relative','height':'0' }
-          },
-          title: { 'color':CREAM,'font-weight':'600','height':'3.4em','line-height':'1.35','overflow':'hidden' },
-          price: { 'color':CREAM },
-          compareAt: { 'color':CREAM3 },
-          button: btnStyle
-        },
-        text: { button: 'View Details' }
-      },
-      productSet: { styles: { products: { '@media (min-width: 601px)': { 'margin-left':'-20px' } } } },
-      modalProduct: {
-        contents: { img:false, imgWithCarousel:true, button:false, buttonWithQuantity:true },
-        styles: { product: { '@media (min-width: 601px)': { 'max-width':'100%','margin-left':'0px','margin-bottom':'0px' } }, button: btnStyle },
-        text: { button: 'Add to cart' }
-      },
-      option: {},
-      cart: { styles: { button: btnStyle }, text: { total:'Subtotal', button:'Checkout' } },
-      toggle: { styles: { toggle: { 'background-color':GOLD, ':hover':{'background-color':GOLD_LT} }, count: { 'color':CHARCOAL }, iconPath: { 'fill':CHARCOAL } } }
-    }
-  });
-}
-function shopFilter(btn){
-  var tabs = document.querySelectorAll('.shop-filter');
-  for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
-  btn.classList.add('active');
-  shopRender(btn.getAttribute('data-col'));
-}
-function shopInitStore(){
-  if(_shopInited) return; _shopInited = true;
-  function build(){
-    var client = ShopifyBuy.buildClient({ domain:'cehtfv-np.myshopify.com', storefrontAccessToken:'c2f813ef6e6542879f7b93e8d5ae7d4e' });
-    ShopifyBuy.UI.onReady(client).then(function(ui){ _shopUI = ui; shopRender('313251528790'); });
-  }
-  if(window.ShopifyBuy && window.ShopifyBuy.UI){ build(); }
-  else {
-    var s = document.createElement('script');
-    s.async = true; s.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-    s.onload = build;
-    (document.head || document.body).appendChild(s);
-  }
-}
-/* shop links out to shop.throttledinbond.com - no embed to initialize */
-function openStory(){ document.getElementById('storyModal').classList.add('open'); }
-function closeStory(){ document.getElementById('storyModal').classList.remove('open'); }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); closeStory(); } });
-
-/* ===== living parallax: whole-page watermark layer drifts with pointer / tilt ===== */
-(function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce) return;
-  var marks = [].slice.call(document.querySelectorAll('.page-marks .mk[data-depth]'));
-  if(!marks.length) return;
-  var tx=0, ty=0, cx=0, cy=0, running=false;
-  function clamp(v){ return v<-1?-1:(v>1?1:v); }
-  function onMove(e){ tx=(e.clientX/window.innerWidth-0.5)*2; ty=(e.clientY/window.innerHeight-0.5)*2; start(); }
-  function onTilt(e){ if(e.gamma==null && e.beta==null) return; tx=clamp((e.gamma||0)/40); ty=clamp(((e.beta||0)-45)/40); start(); }
-  window.addEventListener('mousemove', onMove, {passive:true});
-  window.addEventListener('deviceorientation', onTilt, {passive:true});
-  function tick(){
-    cx += (tx-cx)*0.06; cy += (ty-cy)*0.06;
-    for(var i=0;i<marks.length;i++){
-      var d = parseFloat(marks[i].getAttribute('data-depth')) || 20;
-      marks[i].style.transform = 'translate3d(' + (-cx*d).toFixed(1) + 'px,' + (-cy*d).toFixed(1) + 'px,0)';
-    }
-    if(Math.abs(tx-cx)>0.001 || Math.abs(ty-cy)>0.001){ requestAnimationFrame(tick); } else { running=false; }
-  }
-  function start(){ if(!running){ running=true; requestAnimationFrame(tick); } }
-})();
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); } });
 
 /* ===== forms ===== */
 var SB_URL = 'https://pzbfwzikctpyszthwpvt.supabase.co/functions/v1/brevo-proxy';
