@@ -111,10 +111,11 @@ section{padding:clamp(64px,10vw,120px) 0;position:relative}
 .hero-bag{position:relative;display:flex;align-items:center;justify-content:center}
 .bag-glow{position:absolute;width:82%;height:70%;background:radial-gradient(ellipse at center,rgba(200,136,78,.28),transparent 70%);filter:blur(34px)}
 .bag-fan{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
+.bag-fan>*{flex-shrink:0}
 .bag-fan img{width:auto;filter:drop-shadow(0 14px 26px rgba(0,0,0,.6));animation:bob 6.5s ease-in-out infinite}
-.bag-fan .b0{height:clamp(150px,27vh,290px)}
-.bag-fan .b1{height:clamp(128px,23vh,248px);z-index:2;margin:0 -15px;animation-delay:.35s}
-.bag-fan .b2{height:clamp(108px,19vh,206px);z-index:1;margin:0 -15px;animation-delay:.7s}
+.bag-fan .b0{height:clamp(150px,min(27vh,15.5vw),290px)}
+.bag-fan .b1{height:clamp(128px,min(23vh,13.2vw),248px);z-index:2;margin:0 -15px;animation-delay:.35s}
+.bag-fan .b2{height:clamp(108px,min(19vh,11vw),206px);z-index:1;margin:0 -15px;animation-delay:.7s}
 .bag-center{position:relative;z-index:3;margin:0 -15px;display:inline-flex;animation:bob 6.5s ease-in-out infinite}
 .bag-center .b0{margin:0;animation:none;display:block}
 .hero-seal{position:absolute;z-index:8;top:-6%;right:-2%;width:clamp(92px,10.5vw,148px);height:auto;transform:rotate(16deg);color:var(--gold);filter:drop-shadow(0 4px 12px rgba(0,0,0,.6));pointer-events:none}
@@ -208,16 +209,19 @@ section{padding:clamp(64px,10vw,120px) 0;position:relative}
 .modal-form input:focus{outline:none;border-color:var(--gold)}
 
 /* FOOTER */
-footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-dk);position:relative;z-index:2;
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+body>.hero{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center}
+footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-dk);position:relative;z-index:2;
   background:linear-gradient(to bottom, rgba(16,15,14,.80) 0%, rgba(13,12,11,.95) 45%, rgba(11,10,9,.99) 100%)}
-.foot-top{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+.foot-top{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center}
 .foot-brand .wordmark{color:var(--cream)}
-.foot-links{display:flex;gap:24px;flex-wrap:wrap}
-.foot-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream3);cursor:pointer}
+.foot-links{display:flex;gap:6px 20px;flex-wrap:wrap}
+.foot-links a{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream3);cursor:pointer}
 .foot-links a:hover{color:var(--gold-lt)}
 .foot-whiskey{margin-top:34px;padding-top:20px;font-size:12px;letter-spacing:.06em;color:var(--cream3)}
 .foot-whiskey a{color:var(--gold);font-weight:600}
-.foot-legal{margin-top:16px;font-size:11px;letter-spacing:.04em;color:#9A9186}
+.foot-brand .wordmark{font-size:13px}
+.foot-legal{margin-top:8px;font-size:10px;letter-spacing:.04em;color:#9A9186}
 .foot-legal b{color:#C4BBAD;font-weight:400}
 .tm{font-size:.62em;vertical-align:super}
 
@@ -328,7 +332,6 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
         <a onclick="openSignup()">Early Access</a>
       </div>
     </div>
-    <div class="drule-dk" style="margin:30px 0 0"></div>
     <div class="foot-legal">
       &copy; <span id="yr">2026</span> AGED IN GRAIN&trade;, by THROTTLED&trade; and SANCTIONED BRANDS. ALL RIGHTS RESERVED.
     </div>
