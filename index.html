@@ -67,6 +67,9 @@ p.body{font-size:clamp(15px,1.8vw,18px);color:var(--cream3);margin-top:14px}
    runs off the page; no gradient fade, so the scattered top beans read naturally */
 .page-beans{position:absolute;left:0;right:0;bottom:0;z-index:1;pointer-events:none;line-height:0;overflow:hidden}
 .page-beans img{display:block;width:100%;height:auto;margin-bottom:-17%}
+/* large background THR mark, tilted 30deg left at ~15% opacity */
+.page-mark{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.page-mark img{position:absolute;top:50%;left:50%;width:min(92vw,880px);height:auto;transform:translate(-50%,-50%) rotate(-30deg);opacity:.15}
 @keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-20px,0) scale(1.04)}}
 /* HUGE wordmark spanning the whole page */
 
@@ -249,6 +252,7 @@ footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-d
 
 <!-- ONE continuous background for the whole page -->
 <div class="page-bg" aria-hidden="true"></div>
+<div class="page-mark" aria-hidden="true"><img src="brand/thr-mark-white-512.png" alt=""></div>
 
 <!-- ===== NAV ===== -->
 <header class="nav">
