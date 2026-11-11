@@ -423,8 +423,8 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
     </div>
     <div class="pd">
       <div class="pd-eyebrow">Limited Release &middot; Pre-Order</div>
-      <h2 class="pd-title">Single-Origin Guatemala</h2>
-      <div class="pd-sub">Bourbon Barrel Aged &middot; Whole Bean Coffee</div>
+      <h2 class="pd-title">Bourbon Barrel Aged Coffee</h2>
+      <div class="pd-sub">Single-Origin Guatemala &middot; Whole Bean &middot; 100% Arabica</div>
       <div class="pd-price" id="pdPrice">$32.00</div>
       <div class="pd-preorder" role="note"><strong>Pre-order:</strong> this batch is being barrel-aged and roasted now. Orders are expected to ship before Thanksgiving.</div>
       <div class="pd-ship">Free shipping within the US</div>
@@ -529,7 +529,7 @@ function submitNotify(ev){
 /* ===== SHOP ===== */
 var SHOP_DOMAIN='cehtfv-np.myshopify.com';
 var PRODUCT_HANDLE='aged-in-grain-guatemala';
-var PRODUCT_TITLE='Single-Origin Guatemala';
+var PRODUCT_TITLE='Bourbon Barrel Aged Coffee';
 var CART_IMG='shop/guatemala-bag-dark-1000.jpg';
 /* fallback data; refreshed live from Shopify on load */
 var VARIANTS=[
@@ -597,7 +597,7 @@ function renderCart(){
   foot.style.display='';
   box.innerHTML=cart.map(function(l){
     return '<div class="ci"><img src="'+CART_IMG+'" alt="">'+
-      '<div><div class="ci-t">'+PRODUCT_TITLE+'</div><div class="ci-s">'+l.size+' &middot; Pre-order</div>'+
+      '<div><div class="ci-t">'+PRODUCT_TITLE+'</div><div class="ci-s">Single-Origin Guatemala</div><div class="ci-s">'+l.size+' &middot; Pre-order</div>'+
       '<div class="qty"><button type="button" aria-label="Decrease" onclick="changeQty('+l.id+',-1)">&minus;</button><span>'+l.qty+'</span><button type="button" aria-label="Increase" onclick="changeQty('+l.id+',1)">+</button></div></div>'+
       '<div class="ci-r"><div class="ci-p">'+money(l.price*l.qty)+'</div><button class="ci-rm" type="button" onclick="removeLine('+l.id+')">Remove</button></div></div>';
   }).join('');
