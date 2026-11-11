@@ -17,11 +17,11 @@
 <!-- PRE-LAUNCH / UNLISTED: keep this site out of search until public release -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="description" content="Aged In Grain&trade;: single-barrel coffee, aged in the same barrels that hold Kentucky straight bourbon by THROTTLED&trade;. Coming soon.">
+<meta name="description" content="Aged In Grain&trade; by THROTTLED&trade;: single-origin Guatemala coffee aged 60 days in a bourbon barrel. Pre-order now, ships before Thanksgiving. Free US shipping.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aged In Grain™ – Single-Barrel Coffee">
-<meta property="og:description" content="Barrel-aged coffee from THROTTLED™. Coming soon.">
+<meta property="og:description" content="Bourbon barrel aged coffee from THROTTLED™. Pre-order now, ships before Thanksgiving.">
 <meta property="og:site_name" content="Aged In Grain&trade;">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -248,6 +248,16 @@ body>.hero{min-height:calc(100vh - 64px);min-height:calc(100dvh - 64px)}
 .pd-specs .v{font-size:14.5px;color:var(--cream);margin-top:4px}
 .pd-msg{min-height:20px;margin-top:10px;font-size:13px;color:var(--gold-lt)}
 
+.pd-preorder{margin:14px 0 8px;padding:12px 14px;border:1px solid var(--gold-dk);background:rgba(200,136,78,.08);color:var(--cream);font-size:14px;line-height:1.5}
+.pd-preorder strong{color:var(--gold-lt);letter-spacing:.04em}
+.dr-pre{font-size:12.5px;color:var(--gold-lt);margin-bottom:12px;letter-spacing:.03em}
+.updates{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;margin-top:clamp(48px,7vw,80px);padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--charcoal4);scroll-margin-top:84px}
+.up-title{font-size:clamp(18px,2.4vw,24px);font-weight:600;color:var(--cream);margin-top:8px}
+.up-form{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;flex:0 1 460px}
+.up-form input{flex:1 1 220px;font-family:var(--f);font-size:15px;background:rgba(10,10,9,.6);border:1px solid var(--charcoal4);color:var(--cream);padding:13px 15px}
+.up-form input:focus{outline:none;border-color:var(--gold)}
+.up-form .form-note{flex-basis:100%;margin-top:0;min-height:18px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 /* nav cart button */
 .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--gold);color:var(--gold);padding:8px 14px;font-family:var(--f);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;cursor:pointer}
 .cart-btn:hover{background:var(--gold);color:var(--charcoal)}
@@ -363,7 +373,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <h1 class="hero-lockup"><img src="brand/agedingrain-lockup.png" width="1532" height="320" alt="Aged In Grain&trade; &ndash; Bourbon Barrel Aged Coffee by THROTTLED"></h1>
       <img class="hero-limited" src="brand/limited-release.png" width="1100" height="69" alt="Limited Release">
       <div class="hero-cta">
-        <a class="btn btn-solid" href="#shop">Shop Now</a>
+        <a class="btn btn-solid" href="#shop">Pre-Order Now</a>
       </div>
     </div>
     <div class="hero-right" id="coffee">
@@ -413,10 +423,11 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       </div>
     </div>
     <div class="pd">
-      <div class="pd-eyebrow">Limited Release</div>
+      <div class="pd-eyebrow">Limited Release &middot; Pre-Order</div>
       <h2 class="pd-title">Single-Origin Guatemala</h2>
       <div class="pd-sub">Bourbon Barrel Aged &middot; Whole Bean Coffee</div>
       <div class="pd-price" id="pdPrice">$32.00</div>
+      <div class="pd-preorder" role="note"><strong>Pre-order:</strong> this batch is being barrel-aged and roasted now. Orders are expected to ship before Thanksgiving.</div>
       <div class="pd-ship">Free shipping within the US</div>
 
       <div class="pd-label" id="sizeLbl">Size</div>
@@ -428,7 +439,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
           <span id="pdQty" aria-live="polite">1</span>
           <button type="button" onclick="setPdQty(1)" aria-label="Increase quantity">+</button>
         </div>
-        <button class="btn btn-solid" id="addBtn" onclick="addToCart()">Add to Cart</button>
+        <button class="btn btn-solid" id="addBtn" onclick="addToCart()">Pre-Order</button>
       </div>
       <div class="pd-msg" id="pdMsg" aria-live="polite"></div>
 
@@ -440,6 +451,18 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
         <div><div class="k">Roast</div><div class="v">Dark &middot; Whole bean &middot; 100% Arabica</div></div>
       </div>
     </div>
+  </div>
+  <div class="wrap updates" id="updates">
+    <div class="up-copy">
+      <div class="pd-eyebrow">New Releases</div>
+      <div class="up-title">Be first to know when the next barrel drops.</div>
+    </div>
+    <form class="up-form" onsubmit="return submitNotify(event)">
+      <label class="sr-only" for="notifyEmail">Email address</label>
+      <input type="email" id="notifyEmail" placeholder="you@email.com" autocomplete="email" required>
+      <button type="submit" class="btn btn-ghost" id="notifyBtn">Sign Up</button>
+      <div class="form-note" id="notifyMsg" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
@@ -453,7 +476,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="foot-links">
         <a href="#shop">Shop</a>
         <a href="https://www.throttledspirits.com" target="_blank" rel="noopener noreferrer">Bourbon</a>
-        <a onclick="openSignup()">Early Access</a>
+        <a href="#updates">Release Updates</a>
       </div>
     </div>
     <div class="foot-legal">
@@ -462,21 +485,6 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
   </div>
 </footer>
 
-<!-- ===== EARLY ACCESS MODAL ===== -->
-<div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-label="Get early access">
-  <div class="modal-backdrop" onclick="closeSignup()"></div>
-  <div class="modal-card">
-    <button class="modal-x" onclick="closeSignup()" aria-label="Close">&times;</button>
-    <img class="kmark-sm" src="brand/thr-mark-white-512.png" alt="" crossorigin="anonymous">
-    <h3>Be First To Know</h3>
-    <p>New product releases, No Spam.</p>
-    <form class="modal-form" onsubmit="return submitNotify(event)">
-      <input type="email" id="notifyEmail" placeholder="you@email.com" autocomplete="email" required>
-      <button type="submit" class="btn btn-solid" id="notifyBtn">Notify Me</button>
-    </form>
-    <div class="form-note" id="notifyMsg" style="min-height:20px"></div>
-  </div>
-</div>
 
 <!-- ===== CART DRAWER ===== -->
 <div class="drawer" id="cartDrawer" aria-hidden="true">
@@ -485,6 +493,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
     <div class="dr-head"><h3>Your Cart</h3><button class="dr-x" onclick="closeCart()" aria-label="Close cart">&times;</button></div>
     <div class="dr-items" id="cartItems"></div>
     <div class="dr-foot" id="cartFoot">
+      <div class="dr-pre">Pre-order &middot; expected to ship before Thanksgiving</div>
       <div class="dr-row"><span>Shipping (US)</span><span>Free</span></div>
       <div class="dr-row total"><span>Subtotal</span><span id="cartSub">$0.00</span></div>
       <button class="btn btn-solid" id="checkoutBtn" onclick="checkout()">Checkout</button>
@@ -497,10 +506,6 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
 document.getElementById('yr').textContent = new Date().getFullYear();
 function closeNav(){ document.getElementById('navlinks').classList.remove('open'); }
 
-/* modal */
-function openSignup(){ document.getElementById('signupModal').classList.add('open'); setTimeout(function(){var i=document.getElementById('notifyEmail'); if(i) i.focus();},60); }
-function closeSignup(){ document.getElementById('signupModal').classList.remove('open'); }
-document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); } });
 
 /* ===== forms ===== */
 var SB_URL = 'https://pzbfwzikctpyszthwpvt.supabase.co/functions/v1/brevo-proxy';
@@ -515,22 +520,9 @@ function submitNotify(ev){
   var email=(el.value||'').trim();
   if(!validEmail(email)){ out.className='form-note form-err'; out.textContent='Please enter a valid email.'; return false; }
   btn.disabled=true; out.className='form-note'; out.textContent='Sending...';
-  callProxy({ action:'contact', source:'Aged In Grain – Early Access', email:email, message:'Requested early access / launch notification.' })
+  callProxy({ action:'contact', source:'Aged In Grain – Release Updates', email:email, message:'Signed up for new release updates.' })
     .then(function(r){ return r.json().catch(function(){return {};}); })
-    .then(function(){ out.className='form-note form-ok'; out.textContent="You're on the list. We'll be in touch."; el.value=''; })
-    .catch(function(){ out.className='form-note form-err'; out.textContent='Something went wrong. Try again shortly.'; })
-    .finally(function(){ btn.disabled=false; });
-  return false;
-}
-function submitContact(ev){
-  ev.preventDefault();
-  var name=(document.getElementById('cName').value||'').trim(), email=(document.getElementById('cEmail').value||'').trim(), msg=(document.getElementById('cMsg').value||'').trim();
-  var out=document.getElementById('cMsgOut'), btn=document.getElementById('cBtn');
-  if(!validEmail(email)){ out.className='form-note form-err'; out.textContent='Please enter a valid email.'; return false; }
-  btn.disabled=true; out.className='form-note'; out.textContent='Sending...';
-  callProxy({ action:'contact', source:'Aged In Grain – Contact', name:name, email:email, message:msg })
-    .then(function(r){ return r.json().catch(function(){return {};}); })
-    .then(function(){ out.className='form-note form-ok'; out.textContent='Thanks, your message is on its way.'; document.getElementById('cName').value=''; document.getElementById('cEmail').value=''; document.getElementById('cMsg').value=''; })
+    .then(function(){ out.className='form-note form-ok'; out.textContent="You're in. We'll let you know when the next release drops."; el.value=''; })
     .catch(function(){ out.className='form-note form-err'; out.textContent='Something went wrong. Try again shortly.'; })
     .finally(function(){ btn.disabled=false; });
   return false;
@@ -564,7 +556,7 @@ function renderSizes(){
 function renderPrice(){
   document.getElementById('pdPrice').textContent=money(sel.price);
   var btn=document.getElementById('addBtn');
-  btn.disabled=!sel.available; btn.textContent=sel.available?'Add to Cart':'Sold Out';
+  btn.disabled=!sel.available; btn.textContent=sel.available?'Pre-Order':'Sold Out';
 }
 function setPdQty(d){ pdQty=Math.max(1,Math.min(10,pdQty+d)); document.getElementById('pdQty').textContent=pdQty; }
 
@@ -606,7 +598,7 @@ function renderCart(){
   foot.style.display='';
   box.innerHTML=cart.map(function(l){
     return '<div class="ci"><img src="'+CART_IMG+'" alt="">'+
-      '<div><div class="ci-t">'+PRODUCT_TITLE+'</div><div class="ci-s">Bourbon Barrel Aged &middot; '+l.size+'</div>'+
+      '<div><div class="ci-t">'+PRODUCT_TITLE+'</div><div class="ci-s">'+l.size+' &middot; Pre-order</div>'+
       '<div class="qty"><button type="button" aria-label="Decrease" onclick="changeQty('+l.id+',-1)">&minus;</button><span>'+l.qty+'</span><button type="button" aria-label="Increase" onclick="changeQty('+l.id+',1)">+</button></div></div>'+
       '<div class="ci-r"><div class="ci-p">'+money(l.price*l.qty)+'</div><button class="ci-rm" type="button" onclick="removeLine('+l.id+')">Remove</button></div></div>';
   }).join('');
