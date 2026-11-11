@@ -210,7 +210,7 @@ section{padding:clamp(64px,10vw,120px) 0;position:relative}
 
 
 /* ===== SHOP (single product + cart drawer) ===== */
-body>.hero{min-height:calc(100vh - 64px);min-height:calc(100dvh - 64px)}
+body>.hero{min-height:0}
 .shop{padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,104px);position:relative;z-index:2;scroll-margin-top:64px}
 .shop:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,13,12,.0),rgba(14,13,12,.55) 18%,rgba(14,13,12,.55) 82%,rgba(14,13,12,0));pointer-events:none}
 .shop-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:start}
@@ -308,6 +308,41 @@ body>.hero{justify-content:flex-start;padding-top:0;padding-bottom:0}
   .pcard .pd-specs{margin-top:clamp(10px,1.6vh,16px);padding-top:clamp(10px,1.6vh,16px);gap:8px 18px}
   .pc-top{grid-template-columns:minmax(0,clamp(150px,20vh,230px)) 1fr}
 }
+/* nav: wordmark only */
+.brandmark{gap:0}
+/* hero: Limited Release + CTA centered between logo and bags */
+@media(min-width:821px){
+  .hero-copy .hero-mid{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center;padding:clamp(14px,2.4vh,26px) 0}
+  .hero-copy .hero-bag{margin-top:0;padding-top:0}
+}
+.hero-mid .hero-limited{margin-top:0}
+.hero-copy .hero-cta{margin-top:clamp(18px,3vh,30px)}
+.hero .hero-in{padding-bottom:clamp(70px,9vw,130px)}
+/* footer sign-up */
+.foot-updates{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--charcoal4)}
+.fu-copy{font-size:13.5px;color:var(--cream)}
+.fu-k{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-right:10px}
+.foot-updates .up-form{flex:0 1 420px;gap:8px}
+.foot-updates .up-form input{padding:9px 12px;font-size:14px}
+.foot-updates .up-form .btn{padding:9px 18px}
+.foot-updates .up-form .form-note{min-height:0;font-size:12px}
+/* product image lightbox */
+.gal-main img{cursor:zoom-in}
+.gal-zoom{position:absolute;right:8px;bottom:8px;z-index:2;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(14,13,12,.75);border:1px solid var(--gold-dk);color:var(--cream);cursor:pointer;padding:0}
+.gal-zoom svg{width:18px;height:18px}
+.gal-zoom:hover{color:var(--gold-lt);border-color:var(--gold)}
+.lb{position:fixed;inset:0;z-index:120;background:rgba(8,8,7,.94);display:none;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb-stage{width:min(92vw,92vh);height:min(92vw,92vh);overflow:hidden;cursor:zoom-in;position:relative}
+.lb-stage img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .2s ease;transform-origin:center}
+.lb-stage.zoomed{cursor:zoom-out}
+.lb-stage.zoomed img{transform:scale(2.4)}
+.lb-x{position:absolute;top:14px;right:20px;background:none;border:none;color:var(--cream);font-size:40px;line-height:1;cursor:pointer;z-index:2}
+.lb-x:hover,.lb-nav:hover{color:var(--gold)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(20,19,17,.6);border:1px solid var(--charcoal4);color:var(--cream);font-size:38px;width:48px;height:64px;cursor:pointer;z-index:2;line-height:1}
+.lb-prev{left:14px}.lb-next{right:14px}
+.lb-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream3)}
+@media(max-width:600px){.lb-nav{width:38px;height:52px;font-size:30px}.lb-prev{left:6px}.lb-next{right:6px}}
 /* nav cart button */
 .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--gold);color:var(--gold);padding:8px 14px;font-family:var(--f);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;cursor:pointer}
 .cart-btn:hover{background:var(--gold);color:var(--charcoal)}
@@ -350,7 +385,7 @@ body>.hero{justify-content:flex-start;padding-top:0;padding-bottom:0}
 
 /* FOOTER */
 body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
-body>.hero{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center}
+body>.hero{flex:1 0 auto;display:flex;flex-direction:column;justify-content:flex-start}
 footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-dk);position:relative;z-index:2;
   background:linear-gradient(to bottom, rgba(16,15,14,.80) 0%, rgba(13,12,11,.95) 45%, rgba(11,10,9,.99) 100%)}
 .foot-top{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center}
@@ -402,7 +437,6 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brandmark" href="#top" aria-label="Aged In Grain home">
-      <img src="brand/thr-mark-white-512.png" alt="" crossorigin="anonymous">
       <span class="wordmark">Aged In Grain<span class="tm">&trade;</span></span>
     </a>
     <button class="cart-btn nav-cart-m" onclick="openCart()" aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6.2"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><span class="cart-count" hidden>0</span></button>
@@ -420,9 +454,11 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
   <div class="wrap hero-in hero-grid">
     <div class="hero-copy">
       <h1 class="hero-lockup"><img src="brand/agedingrain-lockup.png" width="1532" height="320" alt="Aged In Grain&trade; &ndash; Bourbon Barrel Aged Coffee by THROTTLED"></h1>
-      <img class="hero-limited" src="brand/limited-release.png" width="1100" height="69" alt="Limited Release">
-      <div class="hero-cta">
-        <a class="btn btn-solid" href="#shop">Pre-Order Now</a>
+      <div class="hero-mid">
+        <img class="hero-limited" src="brand/limited-release.png" width="1100" height="69" alt="Limited Release">
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#shop">Pre-Order Now</a>
+        </div>
       </div>
       <div class="hero-bag" id="coffee">
         <div class="bag-glow"></div>
@@ -459,7 +495,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="pcard">
         <div class="pc-top">
           <div class="pc-gal">
-            <div class="gal-main"><img id="galMain" src="shop/guatemala-bag-dark-1000.jpg" width="1000" height="1000" alt="Aged In Grain Single-Origin Guatemala bourbon barrel aged whole bean coffee bag"></div>
+            <div class="gal-main"><button class="gal-zoom" type="button" onclick="openLb()" aria-label="Enlarge image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></svg></button><img id="galMain" onclick="openLb()" src="shop/guatemala-bag-dark-1000.jpg" width="1000" height="1000" alt="Aged In Grain Single-Origin Guatemala bourbon barrel aged whole bean coffee bag"></div>
             <div class="gal-thumbs" role="group" aria-label="Product images">
               <button aria-current="true" data-src="shop/guatemala-bag-dark-1000.jpg" data-alt="Aged In Grain Single-Origin Guatemala coffee bag"><img src="shop/guatemala-bag-dark-1000.jpg" alt="View 1: coffee bag" loading="lazy"></button>
               <button data-src="shop/guatemala-label-1000.jpg" data-alt="Aged In Grain Guatemala label close-up"><img src="shop/guatemala-label-1000.jpg" alt="View 2: label close-up" loading="lazy"></button>
@@ -496,18 +532,6 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
     </div>
   </div>
 
-  <div class="wrap updates" id="updates">
-    <div class="up-copy">
-      <div class="pd-eyebrow">New Releases</div>
-      <div class="up-title">Be first to know when the next barrel drops.</div>
-    </div>
-    <form class="up-form" onsubmit="return submitNotify(event)">
-      <label class="sr-only" for="notifyEmail">Email address</label>
-      <input type="email" id="notifyEmail" placeholder="you@email.com" autocomplete="email" required>
-      <button type="submit" class="btn btn-ghost" id="notifyBtn">Sign Up</button>
-      <div class="form-note" id="notifyMsg" aria-live="polite"></div>
-    </form>
-  </div>
 
   <div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
 </section>
@@ -515,6 +539,15 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
+    <div class="foot-updates" id="updates">
+      <div class="fu-copy"><span class="fu-k">New Releases</span> Be first to know when the next barrel drops.</div>
+      <form class="up-form" onsubmit="return submitNotify(event)">
+        <label class="sr-only" for="notifyEmail">Email address</label>
+        <input type="email" id="notifyEmail" placeholder="you@email.com" autocomplete="email" required>
+        <button type="submit" class="btn btn-ghost" id="notifyBtn">Sign Up</button>
+        <div class="form-note" id="notifyMsg" aria-live="polite"></div>
+      </form>
+    </div>
     <div class="foot-top">
       <div class="foot-brand">
         <span class="wordmark">Aged In Grain<span class="tm">&trade;</span></span>
@@ -535,6 +568,15 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
   </div>
 </footer>
 
+
+<!-- ===== IMAGE LIGHTBOX ===== -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Product image viewer" aria-hidden="true">
+  <button class="lb-x" type="button" onclick="closeLb()" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" type="button" onclick="lbStep(-1)" aria-label="Previous image">&#8249;</button>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" src="" alt=""></div>
+  <button class="lb-nav lb-next" type="button" onclick="lbStep(1)" aria-label="Next image">&#8250;</button>
+  <div class="lb-hint">Click the image to zoom in</div>
+</div>
 
 <!-- ===== CART DRAWER ===== -->
 <div class="drawer" id="cartDrawer" aria-hidden="true">
@@ -670,6 +712,26 @@ document.querySelectorAll('.gal-thumbs button').forEach(function(b){
     document.querySelectorAll('.gal-thumbs button').forEach(function(x){ x.setAttribute('aria-current', x===b?'true':'false'); });
   });
 });
+/* lightbox */
+var LB_IMGS=[].map.call(document.querySelectorAll('.gal-thumbs button'),function(b){ return {src:b.getAttribute('data-src').replace('-1000.jpg','.jpg'), alt:b.getAttribute('data-alt')}; });
+var lbI=0;
+function curIdx(){ var bs=document.querySelectorAll('.gal-thumbs button'); for(var i=0;i<bs.length;i++){ if(bs[i].getAttribute('aria-current')==='true') return i; } return 0; }
+function lbShow(){ var im=document.getElementById('lbImg'); im.src=LB_IMGS[lbI].src; im.alt=LB_IMGS[lbI].alt; document.getElementById('lbStage').classList.remove('zoomed'); }
+function openLb(){ lbI=curIdx(); lbShow(); var l=document.getElementById('lb'); l.classList.add('open'); l.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; track('view_item_image',{index:lbI}); }
+function closeLb(){ var l=document.getElementById('lb'); l.classList.remove('open'); l.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+function lbStep(d){ lbI=(lbI+d+LB_IMGS.length)%LB_IMGS.length; lbShow(); }
+document.getElementById('lbStage').addEventListener('click',function(e){
+  var st=this, im=document.getElementById('lbImg');
+  if(st.classList.contains('zoomed')){ st.classList.remove('zoomed'); im.style.transformOrigin=''; return; }
+  var r=im.getBoundingClientRect(); im.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';
+  st.classList.add('zoomed');
+});
+document.getElementById('lbStage').addEventListener('mousemove',function(e){
+  if(!this.classList.contains('zoomed')) return; var im=document.getElementById('lbImg'); var r=this.getBoundingClientRect();
+  im.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';
+});
+document.getElementById('lb').addEventListener('click',function(e){ if(e.target===this) closeLb(); });
+document.addEventListener('keydown', function(e){ if(!document.getElementById('lb').classList.contains('open')) return; if(e.key==='Escape') closeLb(); if(e.key==='ArrowRight') lbStep(1); if(e.key==='ArrowLeft') lbStep(-1); });
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeCart(); } });
 loadCart(); renderSizes(); renderPrice(); renderCart(); loadProduct();
 </script>
