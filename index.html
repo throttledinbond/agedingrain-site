@@ -258,6 +258,36 @@ body>.hero{min-height:calc(100vh - 64px);min-height:calc(100dvh - 64px)}
 .up-form input:focus{outline:none;border-color:var(--gold)}
 .up-form .form-note{flex-basis:100%;margin-top:0;min-height:18px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+/* hero now holds bags (left) + product card (right) */
+.hero-copy .hero-bag{margin-top:clamp(26px,4vw,44px)}
+.hero-copy .bag-fan .b0{height:clamp(140px,min(24vh,13vw),250px)}
+.hero-copy .bag-fan .b1{height:clamp(120px,min(20.5vh,11.1vw),214px)}
+.hero-copy .bag-fan .b2{height:clamp(100px,min(17vh,9.2vw),178px)}
+.hero-copy .hero-seal{width:clamp(80px,8.5vw,124px);top:-12%;right:-4%}
+.hero-right{scroll-margin-top:80px}
+.pcard{position:relative;text-align:left;background:rgba(18,17,15,.72);border:1px solid var(--charcoal4);padding:clamp(18px,2.4vw,28px);backdrop-filter:blur(4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.85)}
+.pc-top{display:grid;grid-template-columns:minmax(0,44%) 1fr;gap:clamp(14px,2vw,22px);align-items:start}
+.pc-gal .gal-thumbs{gap:6px;margin-top:6px}
+.pcard .pd-title{font-size:clamp(22px,2.4vw,32px);margin:8px 0 6px}
+.pcard .pd-sub{font-size:11px;letter-spacing:.14em;line-height:1.5}
+.pcard .pd-price{font-size:clamp(24px,2.6vw,30px);margin:14px 0 2px}
+.pcard .pd-preorder{margin:16px 0 0;font-size:13px}
+.pcard .pd-label{margin:16px 0 8px}
+.pcard .pd-size{padding:11px 12px}
+.pcard .pd-buy{margin-top:14px}
+.pcard .pd-buy .btn{padding:14px 18px}
+.pcard .pd-msg{min-height:0;margin-top:0}
+.pcard .pd-specs{margin-top:16px;padding-top:16px;gap:12px 18px}
+.pcard .pd-specs .v{font-size:13px}
+.hero .updates{position:relative;z-index:2;padding-bottom:clamp(110px,12vw,180px);margin-top:clamp(24px,4vw,44px)}
+.hero>.wrap{position:relative;z-index:2;width:100%}
+@media(max-width:860px){
+  .hero-copy .bag-fan .b0{height:clamp(150px,32vw,240px)}
+  .hero-copy .bag-fan .b1{height:clamp(128px,27vw,206px)}
+  .hero-copy .bag-fan .b2{height:clamp(106px,22vw,170px)}
+  .hero-copy .hero-seal{width:clamp(72px,19vw,104px);right:6%}
+}
+@media(max-width:480px){.pc-top{grid-template-columns:1fr}}
 /* nav cart button */
 .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--gold);color:var(--gold);padding:8px 14px;font-family:var(--f);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:500;cursor:pointer}
 .cart-btn:hover{background:var(--gold);color:var(--charcoal)}
@@ -365,9 +395,8 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO + SHOP ===== -->
 <section class="hero" id="top">
-  <div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
   <div class="wrap hero-in hero-grid">
     <div class="hero-copy">
       <h1 class="hero-lockup"><img src="brand/agedingrain-lockup.png" width="1532" height="320" alt="Aged In Grain&trade; &ndash; Bourbon Barrel Aged Coffee by THROTTLED"></h1>
@@ -375,9 +404,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="hero-cta">
         <a class="btn btn-solid" href="#shop">Pre-Order Now</a>
       </div>
-    </div>
-    <div class="hero-right" id="coffee">
-      <div class="hero-bag">
+      <div class="hero-bag" id="coffee">
         <div class="bag-glow"></div>
         <svg class="hero-seal" viewBox="0 0 200 200" role="img" aria-label="Bourbon Barrel Aged &middot; 100% Arabica &middot; Whole Bean Coffee">
           <defs>
@@ -407,50 +434,48 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== SHOP ===== -->
-<section class="shop" id="shop" aria-label="Shop Aged In Grain coffee">
-  <div class="wrap shop-grid">
-    <div class="gallery">
-      <div class="gal-main"><img id="galMain" src="shop/guatemala-bag-dark-1000.jpg" width="1000" height="1000" alt="Aged In Grain Single-Origin Guatemala bourbon barrel aged whole bean coffee bag"></div>
-      <div class="gal-thumbs" role="group" aria-label="Product images">
-        <button aria-current="true" data-src="shop/guatemala-bag-dark-1000.jpg" data-alt="Aged In Grain Single-Origin Guatemala coffee bag"><img src="shop/guatemala-bag-dark-1000.jpg" alt="View 1: coffee bag" loading="lazy"></button>
-        <button data-src="shop/guatemala-label-1000.jpg" data-alt="Aged In Grain Guatemala label close-up"><img src="shop/guatemala-label-1000.jpg" alt="View 2: label close-up" loading="lazy"></button>
-        <button data-src="shop/guatemala-details-v2-1000.jpg" data-alt="Origin, aging, tasting notes and roast details"><img src="shop/guatemala-details-v2-1000.jpg" alt="View 3: coffee details" loading="lazy"></button>
-      </div>
-    </div>
-    <div class="pd">
-      <div class="pd-eyebrow">Limited Release &middot; Pre-Order</div>
-      <h2 class="pd-title">Bourbon Barrel Aged Coffee</h2>
-      <div class="pd-sub">Single-Origin Guatemala &middot; Whole Bean &middot; 100% Arabica</div>
-      <div class="pd-price" id="pdPrice">$32.00</div>
-      <div class="pd-preorder" role="note"><strong>Pre-order:</strong> this batch is being barrel-aged and roasted now. Orders are expected to ship by December 1.</div>
-      <div class="pd-ship">Free shipping within the US</div>
-
-      <div class="pd-label" id="sizeLbl">Size</div>
-      <div class="pd-sizes" role="radiogroup" aria-labelledby="sizeLbl" id="pdSizes"></div>
-
-      <div class="pd-buy">
-        <div class="qty" aria-label="Quantity">
-          <button type="button" onclick="setPdQty(-1)" aria-label="Decrease quantity">&minus;</button>
-          <span id="pdQty" aria-live="polite">1</span>
-          <button type="button" onclick="setPdQty(1)" aria-label="Increase quantity">+</button>
+    <div class="hero-right" id="shop" aria-label="Pre-order Aged In Grain coffee">
+      <div class="pcard">
+        <div class="pc-top">
+          <div class="pc-gal">
+            <div class="gal-main"><img id="galMain" src="shop/guatemala-bag-dark-1000.jpg" width="1000" height="1000" alt="Aged In Grain Single-Origin Guatemala bourbon barrel aged whole bean coffee bag"></div>
+            <div class="gal-thumbs" role="group" aria-label="Product images">
+              <button aria-current="true" data-src="shop/guatemala-bag-dark-1000.jpg" data-alt="Aged In Grain Single-Origin Guatemala coffee bag"><img src="shop/guatemala-bag-dark-1000.jpg" alt="View 1: coffee bag" loading="lazy"></button>
+              <button data-src="shop/guatemala-label-1000.jpg" data-alt="Aged In Grain Guatemala label close-up"><img src="shop/guatemala-label-1000.jpg" alt="View 2: label close-up" loading="lazy"></button>
+              <button data-src="shop/guatemala-details-v2-1000.jpg" data-alt="Origin, aging, tasting notes and roast details"><img src="shop/guatemala-details-v2-1000.jpg" alt="View 3: coffee details" loading="lazy"></button>
+            </div>
+          </div>
+          <div class="pc-head">
+            <div class="pd-eyebrow">Pre-Order</div>
+            <h2 class="pd-title">Bourbon Barrel Aged Coffee</h2>
+            <div class="pd-sub">Single-Origin Guatemala &middot; Whole Bean &middot; 100% Arabica</div>
+            <div class="pd-price" id="pdPrice">$32.00</div>
+            <div class="pd-ship">Free shipping within the US</div>
+          </div>
         </div>
-        <button class="btn btn-solid" id="addBtn" onclick="addToCart()">Pre-Order</button>
-      </div>
-      <div class="pd-msg" id="pdMsg" aria-live="polite"></div>
-
-      <p class="pd-desc">Single-origin coffee from Huehuetenango, Guatemala, aged 8&ndash;10 weeks in bourbon barrels, then dark roasted. Small batch, limited release.</p>
-      <div class="pd-specs">
-        <div><div class="k">Origin</div><div class="v">Huehuetenango, Guatemala</div></div>
-        <div><div class="k">Aged</div><div class="v">8&ndash;10 weeks in bourbon barrels</div></div>
-        <div><div class="k">Tasting Notes</div><div class="v">Dark cocoa &middot; Vanilla &middot; Toasted oak</div></div>
-        <div><div class="k">Roast</div><div class="v">Dark &middot; Whole bean &middot; 100% Arabica</div></div>
+        <div class="pd-preorder" role="note"><strong>Pre-order:</strong> this batch is being barrel-aged and roasted now. Orders are expected to ship by December 1. All sales are final.</div>
+        <div class="pd-label" id="sizeLbl">Size</div>
+        <div class="pd-sizes" role="radiogroup" aria-labelledby="sizeLbl" id="pdSizes"></div>
+        <div class="pd-buy">
+          <div class="qty" aria-label="Quantity">
+            <button type="button" onclick="setPdQty(-1)" aria-label="Decrease quantity">&minus;</button>
+            <span id="pdQty" aria-live="polite">1</span>
+            <button type="button" onclick="setPdQty(1)" aria-label="Increase quantity">+</button>
+          </div>
+          <button class="btn btn-solid" id="addBtn" onclick="addToCart()">Pre-Order</button>
+        </div>
+        <div class="pd-msg" id="pdMsg" aria-live="polite"></div>
+        <div class="pd-specs">
+          <div><div class="k">Origin</div><div class="v">Huehuetenango, Guatemala</div></div>
+          <div><div class="k">Aged</div><div class="v">8&ndash;10 weeks in bourbon barrels</div></div>
+          <div><div class="k">Tasting Notes</div><div class="v">Dark cocoa &middot; Vanilla &middot; Toasted oak</div></div>
+          <div><div class="k">Roast</div><div class="v">Dark &middot; Whole bean &middot; 100% Arabica</div></div>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="wrap updates" id="updates">
     <div class="up-copy">
       <div class="pd-eyebrow">New Releases</div>
@@ -463,6 +488,8 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="form-note" id="notifyMsg" aria-live="polite"></div>
     </form>
   </div>
+
+  <div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
 </section>
 
 <!-- ===== FOOTER ===== -->
@@ -476,6 +503,10 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
         <a href="#shop">Shop</a>
         <a href="https://www.throttledspirits.com" target="_blank" rel="noopener noreferrer">Bourbon</a>
         <a href="#updates">Release Updates</a>
+        <a href="https://cehtfv-np.myshopify.com/policies/shipping-policy" target="_blank" rel="noopener">Shipping</a>
+        <a href="https://cehtfv-np.myshopify.com/policies/refund-policy" target="_blank" rel="noopener">All Sales Final</a>
+        <a href="https://cehtfv-np.myshopify.com/policies/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://cehtfv-np.myshopify.com/policies/terms-of-service" target="_blank" rel="noopener">Terms</a>
       </div>
     </div>
     <div class="foot-legal">
@@ -492,7 +523,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
     <div class="dr-head"><h3>Your Cart</h3><button class="dr-x" onclick="closeCart()" aria-label="Close cart">&times;</button></div>
     <div class="dr-items" id="cartItems"></div>
     <div class="dr-foot" id="cartFoot">
-      <div class="dr-pre">Pre-order &middot; expected to ship by December 1</div>
+      <div class="dr-pre">Pre-order &middot; expected to ship by December 1 &middot; All sales final</div>
       <div class="dr-row"><span>Shipping (US)</span><span>Free</span></div>
       <div class="dr-row total"><span>Subtotal</span><span id="cartSub">$0.00</span></div>
       <button class="btn btn-solid" id="checkoutBtn" onclick="checkout()">Checkout</button>
