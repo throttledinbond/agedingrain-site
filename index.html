@@ -386,6 +386,9 @@ body>.hero{justify-content:flex-start;padding-top:0;padding-bottom:0}
 .dr-row{display:flex;justify-content:space-between;font-size:14px;color:var(--cream3);margin-bottom:6px}
 .dr-row.total{font-size:17px;font-weight:700;color:var(--cream);margin-top:8px}
 .dr-foot .btn{width:100%;text-align:center;margin-top:14px;padding:16px}
+.dr-promo span:first-child{color:var(--gold-lt)}.dr-promo b{font-weight:700;letter-spacing:.06em}.dr-promo span:last-child{color:var(--gold-lt)}
+#cartPromo[hidden],#cartPromoNote[hidden]{display:none!important}
+.dr-promo-note{font-size:11.5px;color:var(--gold-lt);margin-top:6px}
 .dr-note{font-size:11.5px;color:var(--cream3);text-align:center;margin-top:10px}
 
 /* FOOTER */
@@ -594,6 +597,8 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="dr-pre">Pre-order &middot; expected to ship by December 1 &middot; All sales final</div>
       <div class="dr-row"><span>Shipping (US)</span><span>Free</span></div>
       <div class="dr-row total"><span>Subtotal</span><span id="cartSub">$0.00</span></div>
+      <div class="dr-row dr-promo" id="cartPromo" hidden><span>Code <b>GROUNDSTOP</b> &middot; 10% off</span><span id="cartDisc">&minus;$0.00</span></div>
+      <div class="dr-promo-note" id="cartPromoNote" hidden>Applied automatically at checkout &middot; ends Sun 11/15, 11:59 PM ET</div>
       <button class="btn btn-solid" id="checkoutBtn" onclick="checkout()">Checkout</button>
       <div class="dr-note">Secure checkout by Shopify. Taxes calculated at checkout.</div>
     </div>
@@ -669,6 +674,9 @@ function loadProduct(){
   }).catch(function(){});
 }
 
+/* auto-applied promo: GROUNDSTOP 10% off, ends Sun Nov 15 2026 11:59:59 PM ET */
+var PROMO={code:'GROUNDSTOP', pct:10, end:Date.parse('2026-11-16T04:59:59Z')};
+function promoActive(){ return Date.now()<PROMO.end; }
 /* cart */
 function saveCart(){ try{ localStorage.setItem('aig_cart', JSON.stringify(cart)); }catch(e){} }
 function loadCart(){ try{ var c=JSON.parse(localStorage.getItem('aig_cart')||'[]'); if(Array.isArray(c)) cart=c.filter(function(l){ return l && findV(l.id) && l.qty>0; }); }catch(e){ cart=[]; } }
@@ -701,14 +709,18 @@ function renderCart(){
       '<div class="ci-r"><div class="ci-p">'+money(l.price*l.qty)+'</div><button class="ci-rm" type="button" onclick="removeLine('+l.id+')">Remove</button></div></div>';
   }).join('');
   document.getElementById('cartSub').textContent=money(cartSub());
+  var on=promoActive();
+  document.getElementById('cartPromo').hidden=!on; document.getElementById('cartPromoNote').hidden=!on;
+  if(on) document.getElementById('cartDisc').textContent='\u2212'+money(Math.round(cartSub()*PROMO.pct/100));
 }
 function openCart(){ renderCart(); var d=document.getElementById('cartDrawer'); d.classList.add('open'); d.setAttribute('aria-hidden','false'); }
 function closeCart(){ var d=document.getElementById('cartDrawer'); d.classList.remove('open'); d.setAttribute('aria-hidden','true'); }
 function checkout(){
   if(!cart.length) return;
-  track('begin_checkout',{currency:'USD', value:cartSub()/100, items:cart.map(function(l){ return {item_id:String(l.id), item_name:PRODUCT_TITLE, item_variant:l.size, price:l.price/100, quantity:l.qty}; })});
+  var promo=promoActive();
+  track('begin_checkout',{currency:'USD', value:cartSub()/100, coupon:promo?PROMO.code:undefined, items:cart.map(function(l){ return {item_id:String(l.id), item_name:PRODUCT_TITLE, item_variant:l.size, price:l.price/100, quantity:l.qty}; })});
   var path=cart.map(function(l){ return l.id+':'+l.qty; }).join(',');
-  var url='https://'+SHOP_DOMAIN+'/cart/'+path+'?ref=agedingrain.com';
+  var url='https://'+SHOP_DOMAIN+'/cart/'+path+'?ref=agedingrain.com'+(promo?'&discount='+encodeURIComponent(PROMO.code):'');
   window.location.href=url;
 }
 /* gallery */
