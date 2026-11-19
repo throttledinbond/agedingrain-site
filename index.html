@@ -88,6 +88,10 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(20,19,17,.82);backdr
 .nav-links{margin-left:auto;display:flex;gap:26px;align-items:center}
 .nav-links a{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--cream3);font-weight:500;transition:color .15s}
 .nav-links a:hover{color:var(--gold-lt)}
+.nav-social{display:flex;gap:14px;align-items:center}
+.nav-social a{display:inline-flex;align-items:center;gap:10px}
+.nav-social svg{width:19px;height:19px}
+.nav-social span{display:none}
 .nav-links a.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:9px 16px;cursor:pointer}
 .nav-links a.nav-cta:hover{background:var(--gold);color:var(--charcoal)}
 .nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--charcoal4);color:var(--cream);padding:7px 11px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
@@ -95,6 +99,8 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(20,19,17,.82);backdr
   .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(20,19,17,.98);border-bottom:1px solid var(--charcoal4);gap:0;padding:6px 0}
   .nav-links.open{display:flex}
   .nav-links a{padding:14px 24px;width:100%}
+  .nav-social{flex-direction:column;width:100%;gap:0}
+  .nav-social span{display:inline}
   .nav-links a.nav-cta{border:none;border-top:1px solid var(--charcoal4);color:var(--gold);padding:16px 24px}
   .nav-toggle{display:block}
 }
@@ -456,6 +462,10 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
     <nav class="nav-links" id="navlinks">
       <a href="#shop" onclick="closeNav()">Shop</a>
       <a href="https://www.throttledspirits.com" target="_blank" rel="noopener noreferrer" onclick="closeNav()">Bourbon</a>
+      <!-- social links: add new accounts here (and in the footer .foot-social) -->
+      <div class="nav-social">
+        <a href="https://www.instagram.com/agedingrain" target="_blank" rel="noopener noreferrer" onclick="closeNav()" aria-label="Aged In Grain on Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+      </div>
       <button class="cart-btn" onclick="closeNav();openCart()" aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6.2"/><circle cx="9.5" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg>Cart<span class="cart-count" hidden>0</span></button>
     </nav>
   </div>
