@@ -17,11 +17,11 @@
 <!-- PRE-LAUNCH / UNLISTED: keep this site out of search until public release -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="description" content="Aged In Grain&trade; by THROTTLED&trade;: single-origin Guatemala coffee aged 8&ndash;10 weeks in bourbon barrels. Pre-order now, expected to ship by December 1. Free US shipping.">
+<meta name="description" content="Aged In Grain&trade; by THROTTLED&trade;: single-origin Guatemala coffee aged 8&ndash;10 weeks in bourbon barrels. Now shipping. Free US shipping.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aged In Grain™ – Single-Barrel Coffee">
-<meta property="og:description" content="Bourbon barrel aged coffee from THROTTLED™. Pre-order now, expected to ship by December 1.">
+<meta property="og:description" content="Bourbon barrel aged coffee from THROTTLED™. Now shipping, with free US shipping.">
 <meta property="og:site_name" content="Aged In Grain&trade;">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -480,7 +480,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="hero-mid">
         <img class="hero-limited" src="brand/limited-release.png" width="1100" height="69" alt="Limited Release">
         <div class="hero-cta">
-          <a class="btn btn-solid" href="#shop">Pre-Order Now</a>
+          <a class="btn btn-solid" href="#shop">Order Now</a>
         </div>
       </div>
       <div class="hero-bag" id="coffee">
@@ -514,7 +514,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       </div>
     </div>
 
-    <div class="hero-right" id="shop" aria-label="Pre-order Aged In Grain coffee">
+    <div class="hero-right" id="shop" aria-label="Order Aged In Grain coffee">
       <div class="pcard">
         <div class="pc-top">
           <div class="pc-gal">
@@ -526,14 +526,14 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
             </div>
           </div>
           <div class="pc-head">
-            <div class="pd-eyebrow">Pre-Order</div>
+            <div class="pd-eyebrow">Now Shipping</div>
             <h2 class="pd-title">Bourbon Barrel Aged Coffee</h2>
             <div class="pd-sub">Single-Origin Guatemala &middot; Whole Bean &middot; 100% Arabica</div>
             <div class="pd-price" id="pdPrice">$32.00</div>
             <div class="pd-ship">Free shipping within the US</div>
           </div>
         </div>
-        <div class="pd-preorder" role="note"><strong>Pre-order:</strong> this batch is being barrel-aged and roasted now. Orders are expected to ship by December 1. All sales are final.</div>
+        <div class="pd-preorder" role="note"><strong>Now shipping:</strong> this batch is out of the barrel and ready to go. Free US shipping. All sales are final.</div>
         <div class="pd-label" id="sizeLbl">Size</div>
         <div class="pd-sizes" role="radiogroup" aria-labelledby="sizeLbl" id="pdSizes"></div>
         <div class="pd-buy">
@@ -542,7 +542,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
             <span id="pdQty" aria-live="polite">1</span>
             <button type="button" onclick="setPdQty(1)" aria-label="Increase quantity">+</button>
           </div>
-          <button class="btn btn-solid" id="addBtn" onclick="addToCart()">Pre-Order</button>
+          <button class="btn btn-solid" id="addBtn" onclick="addToCart()">Add to Cart</button>
         </div>
         <div class="pd-msg" id="pdMsg" aria-live="polite"></div>
         <div class="pd-specs">
@@ -609,7 +609,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
     <div class="dr-head"><h3>Your Cart</h3><button class="dr-x" onclick="closeCart()" aria-label="Close cart">&times;</button></div>
     <div class="dr-items" id="cartItems"></div>
     <div class="dr-foot" id="cartFoot">
-      <div class="dr-pre">Pre-order &middot; expected to ship by December 1 &middot; All sales final</div>
+      <div class="dr-pre">Free US shipping &middot; All sales final</div>
       <div class="dr-row"><span>Shipping (US)</span><span>Free</span></div>
       <div class="dr-row total"><span>Subtotal</span><span id="cartSub">$0.00</span></div>
       <div class="dr-row dr-promo" id="cartPromo" hidden><span>Code <b>GROUNDSTOP</b> &middot; 10% off</span><span id="cartDisc">&minus;$0.00</span></div>
@@ -674,7 +674,7 @@ function renderSizes(){
 function renderPrice(){
   document.getElementById('pdPrice').textContent=money(sel.price);
   var btn=document.getElementById('addBtn');
-  btn.disabled=!sel.available; btn.textContent=sel.available?'Pre-Order':'Sold Out';
+  btn.disabled=!sel.available; btn.textContent=sel.available?'Add to Cart':'Sold Out';
 }
 function setPdQty(d){ pdQty=Math.max(1,Math.min(10,pdQty+d)); document.getElementById('pdQty').textContent=pdQty; }
 
@@ -719,7 +719,7 @@ function renderCart(){
   foot.style.display='';
   box.innerHTML=cart.map(function(l){
     return '<div class="ci"><img src="'+CART_IMG+'" alt="">'+
-      '<div><div class="ci-t">'+PRODUCT_TITLE+'</div><div class="ci-s">Single-Origin Guatemala</div><div class="ci-s">'+l.size+' &middot; Pre-order</div>'+
+      '<div><div class="ci-t">'+PRODUCT_TITLE+'</div><div class="ci-s">Single-Origin Guatemala</div><div class="ci-s">'+l.size+'</div>'+
       '<div class="qty"><button type="button" aria-label="Decrease" onclick="changeQty('+l.id+',-1)">&minus;</button><span>'+l.qty+'</span><button type="button" aria-label="Increase" onclick="changeQty('+l.id+',1)">+</button></div></div>'+
       '<div class="ci-r"><div class="ci-p">'+money(l.price*l.qty)+'</div><button class="ci-rm" type="button" onclick="removeLine('+l.id+')">Remove</button></div></div>';
   }).join('');
