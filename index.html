@@ -393,7 +393,13 @@ body>.hero{justify-content:flex-start;padding-top:0;padding-bottom:0}
 .dr-row.total{font-size:17px;font-weight:700;color:var(--cream);margin-top:8px}
 .dr-foot .btn{width:100%;text-align:center;margin-top:14px;padding:16px}
 .dr-promo span:first-child{color:var(--gold-lt)}.dr-promo b{font-weight:700;letter-spacing:.06em}.dr-promo span:last-child{color:var(--gold-lt)}
-#cartPromo[hidden],#cartPromoNote[hidden]{display:none!important}
+#cartPromo[hidden],#cartPromoNote[hidden],#promoBar[hidden]{display:none!important}
+.promo-bar{background:var(--gold);color:#141311;text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:9px 0;position:relative;z-index:61}
+.promo-bar b{font-weight:800}
+.promo-bar .pb-sep{margin:0 10px;opacity:.6}
+.pd-was{color:var(--cream3);font-weight:500;font-size:.62em;margin-right:4px;text-decoration-thickness:2px}
+.pd-save{display:inline-block;vertical-align:middle;margin-left:10px;background:var(--gold);color:#141311;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px}
+@media (max-width:640px){.promo-bar{font-size:11px;letter-spacing:.08em;padding:8px 12px}.promo-bar .pb-end{display:block;margin-top:2px}.promo-bar .pb-nc,.promo-bar .pb-sep2{display:none}}
 .dr-promo-note{font-size:11.5px;color:var(--gold-lt);margin-top:6px}
 .dr-note{font-size:11.5px;color:var(--cream3);text-align:center;margin-top:10px}
 
@@ -452,6 +458,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
 <div class="page-mark" aria-hidden="true"><img src="brand/thr-mark-white-512.png" alt=""></div>
 
 <!-- ===== NAV ===== -->
+<div class="promo-bar" id="promoBar" hidden role="note"><div class="wrap"><b>Black Friday</b><span class="pb-sep">&middot;</span>15% off all coffee<span class="pb-nc">, no code needed</span><span class="pb-sep pb-sep2">&middot;</span><span class="pb-end">Ends Mon 11/30 at midnight ET</span></div></div>
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brandmark" href="#top" aria-label="Aged In Grain home">
@@ -610,8 +617,8 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="dr-pre">Free US shipping &middot; All sales final</div>
       <div class="dr-row"><span>Shipping (US)</span><span>Free</span></div>
       <div class="dr-row total"><span>Subtotal</span><span id="cartSub">$0.00</span></div>
-      <div class="dr-row dr-promo" id="cartPromo" hidden><span>Code <b>GROUNDSTOP</b> &middot; 10% off</span><span id="cartDisc">&minus;$0.00</span></div>
-      <div class="dr-promo-note" id="cartPromoNote" hidden>Applied automatically at checkout &middot; ends Sun 11/15, 11:59 PM ET</div>
+      <div class="dr-row dr-promo" id="cartPromo" hidden><span><b>Black Friday</b> &middot; 15% off</span><span id="cartDisc">&minus;$0.00</span></div>
+      <div class="dr-promo-note" id="cartPromoNote" hidden>Applied automatically at checkout &middot; ends Mon 11/30, 11:59 PM ET</div>
       <button class="btn btn-solid" id="checkoutBtn" onclick="checkout()">Checkout</button>
       <div class="dr-note">Secure checkout by Shopify. Taxes calculated at checkout.</div>
     </div>
@@ -670,7 +677,7 @@ function renderSizes(){
   });
 }
 function renderPrice(){
-  document.getElementById('pdPrice').textContent=money(sel.price);
+  document.getElementById('pdPrice').innerHTML=promoActive()? '<s class="pd-was">'+money(sel.price)+'</s> '+money(promoPrice(sel.price))+'<span class="pd-save">'+PROMO.pct+'% off</span>' : money(sel.price);
   var btn=document.getElementById('addBtn');
   btn.disabled=!sel.available; btn.textContent=sel.available?'Add to Cart':'Sold Out';
 }
@@ -687,9 +694,12 @@ function loadProduct(){
   }).catch(function(){});
 }
 
-/* auto-applied promo: GROUNDSTOP 10% off, ends Sun Nov 15 2026 11:59:59 PM ET */
-var PROMO={code:'GROUNDSTOP', pct:10, end:Date.parse('2026-11-16T04:59:59Z')};
-function promoActive(){ return Date.now()<PROMO.end; }
+/* current promo: Black Friday 15% off (Shopify automatic discount, no code), ends Mon Nov 30 2026 11:59:59 PM ET.
+   For a code-based promo set code:'CODE' and it is passed to checkout automatically. */
+var PROMO={label:'Black Friday', code:null, pct:15, start:Date.parse('2026-11-23T23:33:00Z'), end:Date.parse('2026-12-01T04:59:59Z')};
+function promoActive(){ var n=Date.now(); return n>=PROMO.start && n<PROMO.end; }
+document.addEventListener('DOMContentLoaded',function(){ var b=document.getElementById('promoBar'); if(b) b.hidden=!promoActive(); });
+function promoPrice(c){ return promoActive()? Math.round(c*(100-PROMO.pct)/100) : c; }
 /* cart */
 function saveCart(){ try{ localStorage.setItem('aig_cart', JSON.stringify(cart)); }catch(e){} }
 function loadCart(){ try{ var c=JSON.parse(localStorage.getItem('aig_cart')||'[]'); if(Array.isArray(c)) cart=c.filter(function(l){ return l && findV(l.id) && l.qty>0; }); }catch(e){ cart=[]; } }
@@ -731,9 +741,9 @@ function closeCart(){ var d=document.getElementById('cartDrawer'); d.classList.r
 function checkout(){
   if(!cart.length) return;
   var promo=promoActive();
-  track('begin_checkout',{currency:'USD', value:cartSub()/100, coupon:promo?PROMO.code:undefined, items:cart.map(function(l){ return {item_id:String(l.id), item_name:PRODUCT_TITLE, item_variant:l.size, price:l.price/100, quantity:l.qty}; })});
+  track('begin_checkout',{currency:'USD', value:cartSub()/100, coupon:promo?(PROMO.code||PROMO.label):undefined, items:cart.map(function(l){ return {item_id:String(l.id), item_name:PRODUCT_TITLE, item_variant:l.size, price:l.price/100, quantity:l.qty}; })});
   var path=cart.map(function(l){ return l.id+':'+l.qty; }).join(',');
-  var url='https://'+SHOP_DOMAIN+'/cart/'+path+'?ref=agedingrain.com'+(promo?'&discount='+encodeURIComponent(PROMO.code):'');
+  var url='https://'+SHOP_DOMAIN+'/cart/'+path+'?ref=agedingrain.com'+(promo&&PROMO.code?'&discount='+encodeURIComponent(PROMO.code):'');
   window.location.href=url;
 }
 /* gallery */
