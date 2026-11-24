@@ -458,7 +458,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
 <div class="page-mark" aria-hidden="true"><img src="brand/thr-mark-white-512.png" alt=""></div>
 
 <!-- ===== NAV ===== -->
-<div class="promo-bar" id="promoBar" hidden role="note"><div class="wrap"><b>Black Friday</b><span class="pb-sep">&middot;</span>15% off all coffee<span class="pb-nc">, no code needed</span><span class="pb-sep pb-sep2">&middot;</span><span class="pb-end">Ends Mon 11/30 at midnight ET</span></div></div>
+<div class="promo-bar" id="promoBar" hidden role="note"><div class="wrap"><b>Black Friday</b><span class="pb-sep">&middot;</span>15% off all coffee<span class="pb-nc">, no code needed</span><span class="pb-sep pb-sep2">&middot;</span><span class="pb-end">Ends Mon 11/30 at midnight PT</span></div></div>
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brandmark" href="#top" aria-label="Aged In Grain home">
@@ -618,7 +618,7 @@ footer{color:var(--cream3);padding:16px 0 14px;border-top:1px solid var(--gold-d
       <div class="dr-row"><span>Shipping (US)</span><span>Free</span></div>
       <div class="dr-row total"><span>Subtotal</span><span id="cartSub">$0.00</span></div>
       <div class="dr-row dr-promo" id="cartPromo" hidden><span><b>Black Friday</b> &middot; 15% off</span><span id="cartDisc">&minus;$0.00</span></div>
-      <div class="dr-promo-note" id="cartPromoNote" hidden>Applied automatically at checkout &middot; ends Mon 11/30, 11:59 PM ET</div>
+      <div class="dr-promo-note" id="cartPromoNote" hidden>Applied automatically at checkout &middot; ends Mon 11/30, 11:59 PM PT</div>
       <button class="btn btn-solid" id="checkoutBtn" onclick="checkout()">Checkout</button>
       <div class="dr-note">Secure checkout by Shopify. Taxes calculated at checkout.</div>
     </div>
@@ -694,9 +694,9 @@ function loadProduct(){
   }).catch(function(){});
 }
 
-/* current promo: Black Friday 15% off (Shopify automatic discount, no code), ends Mon Nov 30 2026 11:59:59 PM ET.
+/* current promo: Black Friday 15% off (Shopify automatic discount, no code), ends Mon Nov 30 2026 11:59:59 PM PT.
    For a code-based promo set code:'CODE' and it is passed to checkout automatically. */
-var PROMO={label:'Black Friday', code:null, pct:15, start:Date.parse('2026-11-23T23:33:00Z'), end:Date.parse('2026-12-01T04:59:59Z')};
+var PROMO={label:'Black Friday', code:null, pct:15, start:Date.parse('2026-11-23T23:33:00Z'), end:Date.parse('2026-12-01T07:59:59Z')};
 function promoActive(){ var n=Date.now(); return n>=PROMO.start && n<PROMO.end; }
 document.addEventListener('DOMContentLoaded',function(){ var b=document.getElementById('promoBar'); if(b) b.hidden=!promoActive(); });
 function promoPrice(c){ return promoActive()? Math.round(c*(100-PROMO.pct)/100) : c; }
